@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
-const Blog1 = () => {
+const Blog2 = () => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -402,4 +402,4 @@ const Blog1 = () => {
   );
 };
 
-export default Blog1;
+export default Blog2;
