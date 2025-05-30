@@ -137,7 +137,7 @@ const Blog2 = () => {
   return (
     <>
      <Head>
-        <title>Blog 1 Title</title>
+        <title>Blog 2 Title</title>
         <meta property="og:title" content="Blog 2 Title" />
         <meta property="og:description" content="222222222222222222222222  and its lorem lfhhsdfjl iodfhh efnds fdso8ufh fioeshf sfiosf esiofhd fdsuof fidf odsh8fo dslkf sf8o " />
         <meta property="og:image" content="https://bug-next.vercel.app/images/blog1.jpg" />
