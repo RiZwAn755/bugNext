@@ -78,7 +78,7 @@ const Blog2 = () => {
 
   // Alternative sharing method using navigator.share API for mobile devices
   const shareContent = async () => {
-    const title = "The AI Illusion: B2B Marketers Need Better Questions, Not More Hype";
+    const title = "changed for blog2";
     const text = "Discover key insights on how B2B marketers should approach AI without falling for the hype. Read more about first-party data importance, AI-washing, and targeting precision.";
     
     try {
