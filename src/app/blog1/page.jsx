@@ -136,14 +136,14 @@ const Blog1 = () => {
 
   return (
     <>
-     
+     <Head>
         <title>Blog 1 Title</title>
         <meta property="og:title" content="Blog 1 Title" />
         <meta property="og:description" content="This is Blog 1" />
-        <meta property="og:image" content="https://bug-next.vercel.app/blog1/images/blog1.jpg" />
+        <meta property="og:image" content="https://bug-next.vercel.app/images/blog1.jpg" />
         <meta property="og:url" content="https://bug-next.vercel.app/blog1" />
         <meta property="og:type" content="website" />
-    
+    </Head>
 
       <div className="relative w-full h-64 md:h-80 lg:h-96 bg-gray-900 overflow-hidden">
         <div 
