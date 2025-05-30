@@ -15,7 +15,7 @@ const Blog2 = () => {
 
   // Improved LinkedIn sharing function
   const shareOnLinkedIn = () => {
-    const title = "The AI Illusion: B22B Marketers Need Better Questions, Not More Hype";
+    const title = "changed for blog 2";
     const summary = "Key insights on AI in B2B Marketing: 1) Bad Data = Bad AI - first-party data is critical, 2) Beware of AI-washing in vendor tools, 3) Targeting precision matters as budgets shrink.";
     const source = "Compare Bazaar";
 
