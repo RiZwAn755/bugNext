@@ -1,4 +1,4 @@
-// REMOVE "use client" to make this a server component for SEO/meta tags!
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
@@ -15,10 +15,6 @@ const Blog1 = () => {
 
   // Improved LinkedIn sharing function
   const shareOnLinkedIn = () => {
-    const title = "The AI Illusion: B2B Marketers Need Better Questions, Not More Hype";
-    const summary = "Key insights on AI in B2B Marketing: 1) Bad Data = Bad AI - first-party data is critical, 2) Beware of AI-washing in vendor tools, 3) Targeting precision matters as budgets shrink.";
-    const source = "Compare Bazaar";
-
     const shareUrl = new URL("https://www.linkedin.com/sharing/share-offsite/");
     shareUrl.searchParams.append("url", currentUrl);
 
