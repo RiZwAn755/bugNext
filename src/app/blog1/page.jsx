@@ -1,4 +1,5 @@
-"use client";
+// REMOVE "use client" to make this a server component for SEO/meta tags!
+
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 
@@ -9,36 +10,19 @@ const Blog1 = () => {
   const [currentUrl, setCurrentUrl] = useState("");
 
   useEffect(() => {
-    // Set the current URL when component mounts
-    setCurrentUrl(window.location.href);
+    setCurrentUrl(typeof window !== "undefined" ? window.location.href : "");
   }, []);
 
   // Improved LinkedIn sharing function
   const shareOnLinkedIn = () => {
-    const title = "The AI Illusion: B22B Marketers Need Better Questions, Not More Hype";
+    const title = "The AI Illusion: B2B Marketers Need Better Questions, Not More Hype";
     const summary = "Key insights on AI in B2B Marketing: 1) Bad Data = Bad AI - first-party data is critical, 2) Beware of AI-washing in vendor tools, 3) Targeting precision matters as budgets shrink.";
     const source = "Compare Bazaar";
 
-    // Log the values before encoding
-    console.log("Pre-encoded values:", {
-      currentUrl,
-      title,
-      summary,
-      source
-    });
-
-    // Construct share URL
     const shareUrl = new URL("https://www.linkedin.com/sharing/share-offsite/");
     shareUrl.searchParams.append("url", currentUrl);
-    shareUrl.searchParams.append("title", title);
-    shareUrl.searchParams.append("summary", summary);
-    shareUrl.searchParams.append("source", source);
 
-    // Log the constructed URL
-    console.log("Constructed share URL:", shareUrl.toString());
-    console.log("URL search params:", Object.fromEntries(shareUrl.searchParams.entries()));
-
-    // Calculate centered position
+    // Open window centered
     const width = 600;
     const height = 600;
     const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
@@ -48,7 +32,6 @@ const Blog1 = () => {
     const left = (windowWidth - width) / 2 + dualScreenLeft;
     const top = (windowHeight - height) / 2 + dualScreenTop;
 
-    // Window features string
     const features = [
       `width=${width}`,
       `height=${height}`,
@@ -64,15 +47,11 @@ const Blog1 = () => {
       'copyhistory=no'
     ].join(',');
 
-    // Open window
-    console.log("Attempting to open share window with URL:", shareUrl.toString());
     const newWindow = window.open(shareUrl.toString(), 'LinkedInShare', features);
-    
     if (newWindow) {
-      console.log("Share window opened successfully");
       newWindow.focus();
     } else {
-      console.error("Failed to open share window - possibly blocked by popup blocker");
+      alert("Failed to open share window - possibly blocked by popup blocker");
     }
   };
 
@@ -80,7 +59,6 @@ const Blog1 = () => {
   const shareContent = async () => {
     const title = "The AI Illusion: B2B Marketers Need Better Questions, Not More Hype";
     const text = "Discover key insights on how B2B marketers should approach AI without falling for the hype. Read more about first-party data importance, AI-washing, and targeting precision.";
-    
     try {
       if (navigator.share) {
         await navigator.share({
@@ -89,7 +67,6 @@ const Blog1 = () => {
           url: currentUrl,
         });
       } else {
-        // Fallback for desktop browsers
         shareOnLinkedIn();
       }
     } catch (error) {
@@ -136,14 +113,18 @@ const Blog1 = () => {
 
   return (
     <>
-     <Head>
-        <title>Blog 1 Title</title>
-        <meta property="og:title" content="Blog 1 Title" />
-        <meta property="og:description" content="This is Blog 1 and its lorem lfhhsdfjl iodfhh efnds fdso8ufh fioeshf sfiosf esiofhd fdsuof fidf odsh8fo dslkf sf8o " />
+      <Head>
+        <title>The AI Illusion: B2B Marketers Need Better Questions, Not More Hype</title>
+        <meta property="og:title" content="The AI Illusion: B2B Marketers Need Better Questions, Not More Hype" />
+        <meta property="og:description" content="Key insights on AI in B2B Marketing: 1) Bad Data = Bad AI - first-party data is critical, 2) Beware of AI-washing in vendor tools, 3) Targeting precision matters as budgets shrink." />
         <meta property="og:image" content="https://bug-next.vercel.app/images/blog1.jpg" />
         <meta property="og:url" content="https://bug-next.vercel.app/blog1" />
-        <meta property="og:type" content="website" />
-    </Head>
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The AI Illusion: B2B Marketers Need Better Questions, Not More Hype" />
+        <meta name="twitter:description" content="Key insights on AI in B2B Marketing: 1) Bad Data = Bad AI - first-party data is critical, 2) Beware of AI-washing in vendor tools, 3) Targeting precision matters as budgets shrink." />
+        <meta name="twitter:image" content="https://bug-next.vercel.app/images/blog1.jpg" />
+      </Head>
 
       <div className="relative w-full h-64 md:h-80 lg:h-96 bg-gray-900 overflow-hidden">
         <div 
